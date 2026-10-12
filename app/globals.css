@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* Tông cà phê: nâu rang từ latte nhạt tới espresso, nhấn caramel */
+@theme {
+  --font-sans: var(--font-be-vietnam), system-ui, sans-serif;
+
+  --color-coffee-50: #f8f1ea;
+  --color-coffee-100: #efe2d3;
+  --color-coffee-200: #e0c8ad;
+  --color-coffee-300: #cfa983;
+  --color-coffee-400: #b58a5f;
+  --color-coffee-500: #96693f;
+  --color-coffee-600: #7a5131;
+  --color-coffee-700: #633f27;
+  --color-coffee-800: #4e3120;
+  --color-coffee-900: #3b2519;
+  --color-coffee-950: #22150e;
+
+  --color-cream-50: #fdfaf5;
+  --color-cream-100: #f8f1e6;
+  --color-cream-200: #efe2cc;
+
+  --color-espresso-700: #4a3128;
+  --color-espresso-800: #36231c;
+  --color-espresso-900: #241712;
+
+  --color-caramel-400: #d9a66b;
+  --color-caramel-500: #c8915a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Phần tử chờ animation khi cuộn tới */
+.reveal {
+  opacity: 0;
+}
+.reveal.animate__animated {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+  }
+  .animate__animated {
+    animation: none !important;
+  }
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+details[open] .faq-icon {
+  transform: rotate(45deg);
+}
+
+.grain {
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(181, 138, 95, 0.35), transparent 45%),
+    radial-gradient(circle at 85% 70%, rgba(200, 145, 90, 0.25), transparent 40%);
+}

@@ -1,0 +1,722 @@
+<!doctype html>
+<html lang="vi" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Cups Coffee — Khóa học Barista Chuyên Nghiệp</title>
+  <meta name="description" content="Khóa học Barista Chuyên Nghiệp 8 tuần tại The Cups Coffee: từ hạt cà phê đến ly latte art hoàn hảo, có chứng chỉ và hỗ trợ việc làm." />
+  <link rel="icon" href="assets/16E5F48A-DA79-49EF-8C86-44BA17AC08C7_1_105_c.jpeg" />
+
+  <!-- Font: Be Vietnam Pro (sans-serif, hỗ trợ đầy đủ tiếng Việt) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- animate.style -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Be Vietnam Pro"', 'system-ui', 'sans-serif'] },
+          colors: {
+            // Tông cà phê: nâu rang từ latte nhạt tới espresso, nhấn caramel
+            coffee: {
+              50: '#f8f1ea', 100: '#efe2d3', 200: '#e0c8ad', 300: '#cfa983',
+              400: '#b58a5f', 500: '#96693f', 600: '#7a5131', 700: '#633f27',
+              800: '#4e3120', 900: '#3b2519', 950: '#22150e'
+            },
+            cream: { 50: '#fdfaf5', 100: '#f8f1e6', 200: '#efe2cc' },
+            espresso: { 700: '#4a3128', 800: '#36231c', 900: '#241712' },
+            caramel: { 400: '#d9a66b', 500: '#c8915a' }
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Lucide icons -->
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    body { font-family: "Be Vietnam Pro", system-ui, sans-serif; }
+    /* Phần tử chờ animation khi cuộn tới */
+    .reveal { opacity: 0; }
+    .reveal.animate__animated { opacity: 1; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1 !important; }
+      .animate__animated { animation: none !important; }
+    }
+    details summary::-webkit-details-marker { display: none; }
+    details[open] .faq-icon { transform: rotate(45deg); }
+    .grain {
+      background-image: radial-gradient(circle at 20% 20%, rgba(181,138,95,.35), transparent 45%),
+                        radial-gradient(circle at 85% 70%, rgba(200,145,90,.25), transparent 40%);
+    }
+  </style>
+</head>
+
+<body class="bg-cream-50 text-espresso-900 antialiased">
+
+  <!-- ============ HEADER ============ -->
+  <header id="top" class="sticky top-0 z-50 bg-cream-50/85 backdrop-blur border-b border-coffee-100">
+    <nav class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-3">
+        <img src="assets/16E5F48A-DA79-49EF-8C86-44BA17AC08C7_1_105_c.jpeg" alt="The Cups Coffee" class="h-11 w-11 rounded-full object-cover ring-2 ring-coffee-200" />
+        <span class="font-bold tracking-tight text-coffee-900 hidden sm:block">The Cups Academy</span>
+      </a>
+      <ul class="hidden md:flex items-center gap-8 text-sm font-medium text-espresso-700">
+        <li><a href="#solution" class="hover:text-coffee-600">Khóa học</a></li>
+        <li><a href="#curriculum" class="hover:text-coffee-600">Lộ trình</a></li>
+        <li><a href="#testimonials" class="hover:text-coffee-600">Học viên</a></li>
+        <li><a href="#pricing" class="hover:text-coffee-600">Học phí</a></li>
+        <li><a href="#faq" class="hover:text-coffee-600">FAQ</a></li>
+      </ul>
+      <a href="#pricing" class="hidden md:inline-flex items-center gap-2 rounded-full bg-coffee-700 px-5 py-2.5 text-sm font-semibold text-white hover:bg-coffee-800 transition">
+        Đăng ký ngay <i data-lucide="arrow-right" class="h-4 w-4"></i>
+      </a>
+      <button id="menuBtn" class="md:hidden p-2 rounded-lg text-coffee-900" aria-label="Mở menu" aria-expanded="false">
+        <i data-lucide="menu" class="h-6 w-6"></i>
+      </button>
+    </nav>
+    <div id="mobileMenu" class="md:hidden hidden border-t border-coffee-100 bg-cream-50">
+      <ul class="px-4 py-4 space-y-3 font-medium">
+        <li><a href="#solution" class="block py-1">Khóa học</a></li>
+        <li><a href="#curriculum" class="block py-1">Lộ trình</a></li>
+        <li><a href="#testimonials" class="block py-1">Học viên</a></li>
+        <li><a href="#pricing" class="block py-1">Học phí</a></li>
+        <li><a href="#faq" class="block py-1">FAQ</a></li>
+        <li><a href="#pricing" class="mt-2 block rounded-full bg-coffee-700 py-3 text-center font-semibold text-white">Đăng ký ngay</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main>
+    <!-- ============ 1. HERO ============ -->
+    <section class="relative overflow-hidden bg-coffee-950 text-white">
+      <div class="absolute inset-0 grain"></div>
+      <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24 grid lg:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="animate__animated animate__fadeInDown inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-sm text-coffee-100 ring-1 ring-white/15">
+            <i data-lucide="sparkles" class="h-4 w-4 text-caramel-400"></i> Khai giảng khóa K12 — 09/11/2026
+          </span>
+          <h1 class="animate__animated animate__fadeInUp mt-6 text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight">
+            Từ hạt cà phê đến <span class="text-coffee-300">ly latte art</span> hoàn hảo trong 8 tuần
+          </h1>
+          <p class="animate__animated animate__fadeInUp animate__delay-1s mt-6 text-lg text-coffee-100/90 max-w-xl">
+            Khóa học Barista Chuyên Nghiệp tại The Cups Coffee: 80% thời gian thực hành trên máy espresso thương mại, học cùng barista đạt giải quốc gia, nhận chứng chỉ và hỗ trợ việc làm.
+          </p>
+          <div class="animate__animated animate__fadeInUp animate__delay-1s mt-8 flex flex-col sm:flex-row gap-4">
+            <a href="#pricing" class="inline-flex items-center justify-center gap-2 rounded-full bg-caramel-400 px-7 py-4 font-semibold text-espresso-900 shadow-lg shadow-caramel-500/30 hover:bg-caramel-500 transition">
+              Giữ chỗ với ưu đãi -30% <i data-lucide="arrow-right" class="h-5 w-5"></i>
+            </a>
+            <a href="#curriculum" class="inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 font-semibold ring-1 ring-white/30 hover:bg-white/10 transition">
+              <i data-lucide="book-open" class="h-5 w-5"></i> Xem lộ trình học
+            </a>
+          </div>
+          <div class="mt-10 flex items-center gap-6 text-sm text-coffee-100/80">
+            <div class="flex -space-x-3">
+              <img class="h-10 w-10 rounded-full ring-2 ring-coffee-950 object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop" alt="Học viên" />
+              <img class="h-10 w-10 rounded-full ring-2 ring-coffee-950 object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop" alt="Học viên" />
+              <img class="h-10 w-10 rounded-full ring-2 ring-coffee-950 object-cover" src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop" alt="Học viên" />
+            </div>
+            <div>
+              <div class="flex items-center gap-1 text-caramel-400">
+                <i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i><i data-lucide="star" class="h-4 w-4 fill-current"></i>
+                <span class="ml-1 font-semibold text-white">4.9/5</span>
+              </div>
+              <p>từ 1.200+ học viên đã tốt nghiệp</p>
+            </div>
+          </div>
+        </div>
+        <div class="relative animate__animated animate__zoomIn">
+          <div class="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-tr from-coffee-500/40 to-caramel-400/30 blur-2xl"></div>
+          <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?w=1000&q=80&auto=format&fit=crop" alt="Barista rót latte art"
+               class="relative w-full aspect-[4/5] object-cover rounded-[2rem] shadow-2xl" />
+          <div class="absolute -bottom-6 -left-4 sm:-left-8 rounded-2xl bg-white p-4 text-espresso-900 shadow-xl flex items-center gap-3 animate__animated animate__fadeInUp animate__delay-2s">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-coffee-100 text-coffee-700"><i data-lucide="award" class="h-6 w-6"></i></span>
+            <div>
+              <p class="text-sm font-bold">Chứng chỉ Barista</p>
+              <p class="text-xs text-espresso-700">Được 50+ chuỗi cà phê công nhận</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 2. PROBLEM ============ -->
+    <section class="py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto reveal" data-anim="fadeInUp">
+          <p class="font-semibold text-coffee-600 uppercase tracking-widest text-sm">Bạn có đang gặp những điều này?</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">Yêu cà phê thôi chưa đủ để pha một ly ngon</h2>
+        </div>
+        <div class="mt-14 grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <article class="reveal rounded-3xl bg-white p-7 ring-1 ring-coffee-100 hover:shadow-xl hover:-translate-y-1 transition" data-anim="fadeInUp">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-rose-100 text-rose-600"><i data-lucide="frown" class="h-6 w-6"></i></span>
+            <h3 class="mt-5 text-lg font-bold">Pha mãi vẫn đắng, chua</h3>
+            <p class="mt-2 text-espresso-700">Không hiểu chiết xuất, cỡ xay, tỷ lệ nên mỗi ly một vị, khó lặp lại.</p>
+          </article>
+          <article class="reveal rounded-3xl bg-white p-7 ring-1 ring-coffee-100 hover:shadow-xl hover:-translate-y-1 transition" data-anim="fadeInUp" data-delay="1">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-amber-100 text-amber-600"><i data-lucide="youtube" class="h-6 w-6"></i></span>
+            <h3 class="mt-5 text-lg font-bold">Tự học qua video rời rạc</h3>
+            <p class="mt-2 text-espresso-700">Xem hàng trăm clip nhưng không ai sửa lỗi tay, không có máy để luyện.</p>
+          </article>
+          <article class="reveal rounded-3xl bg-white p-7 ring-1 ring-coffee-100 hover:shadow-xl hover:-translate-y-1 transition" data-anim="fadeInUp" data-delay="2">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-sky-100 text-sky-600"><i data-lucide="briefcase" class="h-6 w-6"></i></span>
+            <h3 class="mt-5 text-lg font-bold">Khó xin việc barista</h3>
+            <p class="mt-2 text-espresso-700">Quán tốt yêu cầu kinh nghiệm và chứng chỉ mà bạn chưa có.</p>
+          </article>
+          <article class="reveal rounded-3xl bg-white p-7 ring-1 ring-coffee-100 hover:shadow-xl hover:-translate-y-1 transition" data-anim="fadeInUp" data-delay="3">
+            <span class="grid h-12 w-12 place-items-center rounded-2xl bg-coffee-100 text-coffee-600"><i data-lucide="store" class="h-6 w-6"></i></span>
+            <h3 class="mt-5 text-lg font-bold">Mở quán mà thiếu nền tảng</h3>
+            <p class="mt-2 text-espresso-700">Lo chọn máy, chọn hạt, định lượng menu — sai một bước là tốn hàng chục triệu.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 3. SOLUTION ============ -->
+    <section id="solution" class="py-20 lg:py-28 bg-coffee-50">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-14 items-center">
+        <div class="reveal relative" data-anim="fadeInLeft">
+          <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?w=1000&q=80&auto=format&fit=crop" alt="Dụng cụ pha pour-over"
+               class="w-full aspect-square object-cover rounded-[2rem] shadow-xl" />
+          <div class="absolute -top-5 -right-3 sm:-right-6 rounded-2xl bg-coffee-700 px-5 py-4 text-white shadow-xl">
+            <p class="text-3xl font-extrabold">80%</p>
+            <p class="text-xs text-coffee-100">thời lượng thực hành</p>
+          </div>
+        </div>
+        <div class="reveal" data-anim="fadeInRight">
+          <p class="font-semibold text-coffee-600 uppercase tracking-widest text-sm">Giải pháp</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">Khóa học Barista Chuyên Nghiệp — The Cups Academy</h2>
+          <p class="mt-5 text-lg text-espresso-700">
+            Chương trình 8 tuần được thiết kế bởi đội ngũ barista của The Cups Coffee, đi từ kiến thức hạt, rang, xay đến espresso, đánh sữa, latte art, pha chế đồ uống signature và vận hành quầy bar.
+          </p>
+          <ul class="mt-8 grid sm:grid-cols-2 gap-5">
+            <li class="flex gap-3">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white text-coffee-700 ring-1 ring-coffee-200"><i data-lucide="coffee" class="h-5 w-5"></i></span>
+              <div><p class="font-semibold">Máy espresso thương mại</p><p class="text-sm text-espresso-700">1 học viên / 1 máy khi thực hành</p></div>
+            </li>
+            <li class="flex gap-3">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white text-coffee-700 ring-1 ring-coffee-200"><i data-lucide="users" class="h-5 w-5"></i></span>
+              <div><p class="font-semibold">Lớp tối đa 8 người</p><p class="text-sm text-espresso-700">Giảng viên sửa lỗi từng động tác</p></div>
+            </li>
+            <li class="flex gap-3">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white text-coffee-700 ring-1 ring-coffee-200"><i data-lucide="video" class="h-5 w-5"></i></span>
+              <div><p class="font-semibold">Học liệu video trọn đời</p><p class="text-sm text-espresso-700">Ôn lại mọi lúc sau khóa</p></div>
+            </li>
+            <li class="flex gap-3">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-white text-coffee-700 ring-1 ring-coffee-200"><i data-lucide="badge-check" class="h-5 w-5"></i></span>
+              <div><p class="font-semibold">Chứng chỉ & giới thiệu việc</p><p class="text-sm text-espresso-700">Kết nối 50+ quán đối tác</p></div>
+            </li>
+          </ul>
+          <a href="#curriculum" class="mt-10 inline-flex items-center gap-2 font-semibold text-coffee-700 hover:text-coffee-900">
+            Xem chi tiết lộ trình <i data-lucide="arrow-down-right" class="h-5 w-5"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 4. BENEFITS ============ -->
+    <section class="py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto reveal" data-anim="fadeInUp">
+          <p class="font-semibold text-coffee-600 uppercase tracking-widest text-sm">Bạn nhận được gì</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">5 thay đổi rõ ràng sau 8 tuần</h2>
+        </div>
+        <div class="mt-14 grid md:grid-cols-6 gap-6">
+          <div class="reveal md:col-span-3 lg:col-span-2 rounded-3xl bg-coffee-900 p-8 text-white" data-anim="fadeInUp">
+            <i data-lucide="target" class="h-8 w-8 text-caramel-400"></i>
+            <h3 class="mt-5 text-xl font-bold">Pha espresso chuẩn vị, ổn định</h3>
+            <p class="mt-2 text-coffee-100/90">Tự canh cỡ xay, liều lượng, thời gian chiết xuất để ly nào cũng ngon như ly nào.</p>
+          </div>
+          <div class="reveal md:col-span-3 lg:col-span-2 rounded-3xl bg-white p-8 ring-1 ring-coffee-100" data-anim="fadeInUp" data-delay="1">
+            <i data-lucide="heart" class="h-8 w-8 text-coffee-600"></i>
+            <h3 class="mt-5 text-xl font-bold">Thành thạo 6 mẫu latte art</h3>
+            <p class="mt-2 text-espresso-700">Heart, tulip, rosetta, swan… từ cơ bản đến nâng cao.</p>
+          </div>
+          <div class="reveal md:col-span-2 lg:col-span-2 rounded-3xl bg-white p-8 ring-1 ring-coffee-100" data-anim="fadeInUp" data-delay="2">
+            <i data-lucide="cup-soda" class="h-8 w-8 text-coffee-600"></i>
+            <h3 class="mt-5 text-xl font-bold">30+ công thức đồ uống</h3>
+            <p class="mt-2 text-espresso-700">Cà phê Việt, specialty, cold brew và menu signature bán chạy.</p>
+          </div>
+          <div class="reveal md:col-span-2 lg:col-span-3 rounded-3xl bg-white p-8 ring-1 ring-coffee-100" data-anim="fadeInUp">
+            <i data-lucide="trending-up" class="h-8 w-8 text-coffee-600"></i>
+            <h3 class="mt-5 text-xl font-bold">Thu nhập barista 8–15 triệu/tháng</h3>
+            <p class="mt-2 text-espresso-700">Hồ sơ chứng chỉ và portfolio giúp bạn ứng tuyển vào các chuỗi cà phê specialty.</p>
+          </div>
+          <div class="reveal md:col-span-2 lg:col-span-3 rounded-3xl bg-caramel-400 p-8 text-espresso-900" data-anim="fadeInUp" data-delay="1">
+            <i data-lucide="key-round" class="h-8 w-8"></i>
+            <h3 class="mt-5 text-xl font-bold">Tự tin mở quán của riêng mình</h3>
+            <p class="mt-2 text-espresso-800">Biết chọn máy, chọn hạt, tính giá vốn và setup quầy bar hiệu quả.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 5. CURRICULUM ============ -->
+    <section id="curriculum" class="py-20 lg:py-28 bg-espresso-900 text-cream-100">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 reveal" data-anim="fadeInUp">
+          <div class="max-w-2xl">
+            <p class="font-semibold text-coffee-300 uppercase tracking-widest text-sm">Lộ trình học</p>
+            <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-white">4 module · 8 tuần · 48 giờ học</h2>
+            <p class="mt-4 text-cream-200/80">Học 2 buổi/tuần, mỗi buổi 3 giờ. Có lớp sáng, chiều và tối để bạn sắp xếp linh hoạt.</p>
+          </div>
+          <div class="flex flex-wrap gap-3 text-sm">
+            <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2"><i data-lucide="clock" class="h-4 w-4 text-coffee-300"></i> 48 giờ</span>
+            <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2"><i data-lucide="layers" class="h-4 w-4 text-coffee-300"></i> 16 buổi</span>
+            <span class="inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2"><i data-lucide="clipboard-check" class="h-4 w-4 text-coffee-300"></i> 1 bài thi cuối khóa</span>
+          </div>
+        </div>
+
+        <ol class="mt-16 relative border-l-2 border-coffee-700/60 ml-3 space-y-12">
+          <li class="reveal pl-8 sm:pl-12 relative" data-anim="fadeInUp">
+            <span class="absolute -left-[15px] top-1 grid h-7 w-7 place-items-center rounded-full bg-coffee-500 text-xs font-bold text-white ring-4 ring-espresso-900">1</span>
+            <div class="grid md:grid-cols-[1fr_260px] gap-6 rounded-3xl bg-white/5 p-6 sm:p-8 ring-1 ring-white/10">
+              <div>
+                <p class="text-sm font-semibold text-caramel-400">Tuần 1–2 · Module 1</p>
+                <h3 class="mt-1 text-xl font-bold text-white">Nền tảng cà phê</h3>
+                <ul class="mt-4 space-y-2 text-cream-200/85">
+                  <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-300"></i> Giống cà phê, vùng trồng, sơ chế và mức rang</li>
+                  <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-300"></i> Cupping và nhận diện hương vị</li>
+                  <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-300"></i> Pha thủ công: phin, pour-over, French press</li>
+                </ul>
+              </div>
+              <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600&q=75&auto=format&fit=crop" alt="Hạt cà phê rang" class="w-full h-44 md:h-full object-cover rounded-2xl" loading="lazy" />
+            </div>
+          </li>
+          <li class="reveal pl-8 sm:pl-12 relative" data-anim="fadeInUp">
+            <span class="absolute -left-[15px] top-1 grid h-7 w-7 place-items-center rounded-full bg-coffee-500 text-xs font-bold text-white ring-4 ring-espresso-900">2</span>
+            <div class="grid md:grid-cols-[1fr_260px] gap-6 rounded-3xl bg-white/5 p-6 sm:p-8 ring-1 ring-white/10">
+              <div>
+                <p class="text-sm font-semibold text-caramel-400">Tuần 3–4 · Module 2</p>
+                <h3 class="mt-1 text-xl font-bold text-white">Espresso & máy pha</h3>
+                <ul class="mt-4 space-y-2 text-cream-200/85">
+                  <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-300"></i> Cấu tạo, vận hành và vệ sinh máy espresso, máy xay</li>
+                  <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-300"></i> Dosing, tamping, recipe và dial-in</li>
+                  <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-300"></i> Chẩn đoán shot lỗi: under / over extraction</li>
+                </ul>
+              </div>
+              <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?w=600&q=75&auto=format&fit=crop" alt="Portafilter và espresso" class="w-full h-44 md:h-full object-cover rounded-2xl" loading="lazy" />
+            </div>
+          </li>
+          <li class="reveal pl-8 sm:pl-12 relative" data-anim="fadeInUp">
+            <span class="absolute -left-[15px] top-1 grid h-7 w-7 place-items-center rounded-full bg-coffee-500 text-xs font-bold text-white ring-4 ring-espresso-900">3</span>
+            <div class="grid md:grid-cols-[1fr_260px] gap-6 rounded-3xl bg-white/5 p-6 sm:p-8 ring-1 ring-white/10">
+              <div>
+                <p class="text-sm font-semibold text-caramel-400">Tuần 5–6 · Module 3</p>
+                <h3 class="mt-1 text-xl font-bold text-white">Sữa & Latte Art</h3>
+                <ul class="mt-4 space-y-2 text-cream-200/85">
+                  <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-300"></i> Kỹ thuật đánh sữa microfoam, sữa thực vật</li>
+                  <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-300"></i> Cappuccino, latte, flat white chuẩn tỷ lệ</li>
+                  <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-300"></i> 6 mẫu latte art từ heart đến swan</li>
+                </ul>
+              </div>
+              <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=600&q=75&auto=format&fit=crop" alt="Ly latte art" class="w-full h-44 md:h-full object-cover rounded-2xl" loading="lazy" />
+            </div>
+          </li>
+          <li class="reveal pl-8 sm:pl-12 relative" data-anim="fadeInUp">
+            <span class="absolute -left-[15px] top-1 grid h-7 w-7 place-items-center rounded-full bg-caramel-400 text-xs font-bold text-espresso-900 ring-4 ring-espresso-900">4</span>
+            <div class="grid md:grid-cols-[1fr_260px] gap-6 rounded-3xl bg-white/5 p-6 sm:p-8 ring-1 ring-white/10">
+              <div>
+                <p class="text-sm font-semibold text-caramel-400">Tuần 7–8 · Module 4</p>
+                <h3 class="mt-1 text-xl font-bold text-white">Menu & Vận hành quầy bar</h3>
+                <ul class="mt-4 space-y-2 text-cream-200/85">
+                  <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-300"></i> Cold brew, đồ uống đá và signature theo mùa</li>
+                  <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-300"></i> Workflow quầy bar giờ cao điểm, tính giá vốn</li>
+                  <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-300"></i> Thi thực hành cuối khóa & nhận chứng chỉ</li>
+                </ul>
+              </div>
+              <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?w=600&q=75&auto=format&fit=crop" alt="Cà phê sữa đá" class="w-full h-44 md:h-full object-cover rounded-2xl" loading="lazy" />
+            </div>
+          </li>
+        </ol>
+
+        <div class="mt-14 text-center reveal" data-anim="fadeInUp">
+          <a href="#pricing" class="inline-flex items-center gap-2 rounded-full bg-coffee-500 px-7 py-4 font-semibold text-white hover:bg-coffee-400 transition">
+            Đăng ký khóa K12 <i data-lucide="arrow-right" class="h-5 w-5"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 6. SOCIAL PROOF ============ -->
+    <section id="testimonials" class="py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <!-- Statistics -->
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="reveal rounded-3xl bg-coffee-50 p-6 text-center" data-anim="fadeInUp">
+            <p class="text-4xl font-extrabold text-coffee-700"><span class="counter" data-target="1200">0</span>+</p>
+            <p class="mt-1 text-espresso-700">Học viên tốt nghiệp</p>
+          </div>
+          <div class="reveal rounded-3xl bg-coffee-50 p-6 text-center" data-anim="fadeInUp" data-delay="1">
+            <p class="text-4xl font-extrabold text-coffee-700"><span class="counter" data-target="92">0</span>%</p>
+            <p class="mt-1 text-espresso-700">Có việc sau 3 tháng</p>
+          </div>
+          <div class="reveal rounded-3xl bg-coffee-50 p-6 text-center" data-anim="fadeInUp" data-delay="2">
+            <p class="text-4xl font-extrabold text-coffee-700"><span class="counter" data-target="50">0</span>+</p>
+            <p class="mt-1 text-espresso-700">Quán đối tác tuyển dụng</p>
+          </div>
+          <div class="reveal rounded-3xl bg-coffee-50 p-6 text-center" data-anim="fadeInUp" data-delay="3">
+            <p class="text-4xl font-extrabold text-coffee-700">4.9<span class="text-2xl">/5</span></p>
+            <p class="mt-1 text-espresso-700">Đánh giá trung bình</p>
+          </div>
+        </div>
+
+        <!-- Testimonials -->
+        <div class="mt-20 text-center max-w-2xl mx-auto reveal" data-anim="fadeInUp">
+          <p class="font-semibold text-coffee-600 uppercase tracking-widest text-sm">Học viên nói gì</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">Câu chuyện từ quầy bar</h2>
+        </div>
+        <div class="mt-12 grid md:grid-cols-3 gap-6">
+          <figure class="reveal rounded-3xl bg-white p-8 ring-1 ring-coffee-100 flex flex-col" data-anim="fadeInUp">
+            <i data-lucide="quote" class="h-8 w-8 text-coffee-300"></i>
+            <blockquote class="mt-4 flex-1 text-espresso-800">“Trước đây mình pha theo cảm tính. Sau khóa học mình hiểu vì sao shot bị chua và tự dial-in được. Giờ mình là head barista ở một quán specialty tại Quận 3.”</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=96&h=96&fit=crop" alt="" class="h-12 w-12 rounded-full object-cover" loading="lazy" />
+              <div><p class="font-bold">Ngọc Anh</p><p class="text-sm text-espresso-700">Head Barista, khóa K8</p></div>
+            </figcaption>
+          </figure>
+          <figure class="reveal rounded-3xl bg-coffee-900 p-8 text-white flex flex-col" data-anim="fadeInUp" data-delay="1">
+            <i data-lucide="quote" class="h-8 w-8 text-caramel-400"></i>
+            <blockquote class="mt-4 flex-1 text-coffee-100">“Module vận hành quầy bar giúp mình tiết kiệm cả chục triệu khi chọn máy và setup quán. Quán mình mở được 6 tháng và đã có lãi.”</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=96&h=96&fit=crop" alt="" class="h-12 w-12 rounded-full object-cover" loading="lazy" />
+              <div><p class="font-bold">Minh Quân</p><p class="text-sm text-coffee-200">Chủ quán, khóa K10</p></div>
+            </figcaption>
+          </figure>
+          <figure class="reveal rounded-3xl bg-white p-8 ring-1 ring-coffee-100 flex flex-col" data-anim="fadeInUp" data-delay="2">
+            <i data-lucide="quote" class="h-8 w-8 text-coffee-300"></i>
+            <blockquote class="mt-4 flex-1 text-espresso-800">“Lớp chỉ 8 người nên thầy sửa từng động tác rót sữa. Tuần thứ 6 mình đã vẽ được rosetta, điều mà tự học cả năm không làm nổi.”</blockquote>
+            <figcaption class="mt-6 flex items-center gap-3">
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=96&h=96&fit=crop" alt="" class="h-12 w-12 rounded-full object-cover" loading="lazy" />
+              <div><p class="font-bold">Thu Hà</p><p class="text-sm text-espresso-700">Barista, khóa K11</p></div>
+            </figcaption>
+          </figure>
+        </div>
+
+        <!-- Partner logos -->
+        <div class="mt-20 reveal" data-anim="fadeIn">
+          <p class="text-center text-sm font-semibold uppercase tracking-widest text-espresso-700/70">Học viên đang làm việc tại</p>
+          <div class="mt-8 flex flex-wrap items-center justify-center gap-x-10 gap-y-6 text-espresso-700/60">
+            <span class="inline-flex items-center gap-2 text-xl font-extrabold tracking-tight hover:text-coffee-700 transition"><i data-lucide="coffee" class="h-6 w-6"></i> BeanHouse</span>
+            <span class="inline-flex items-center gap-2 text-xl font-extrabold tracking-tight hover:text-coffee-700 transition"><i data-lucide="leaf" class="h-6 w-6"></i> Green Roast</span>
+            <span class="inline-flex items-center gap-2 text-xl font-extrabold tracking-tight hover:text-coffee-700 transition"><i data-lucide="mountain" class="h-6 w-6"></i> Highland Bloom</span>
+            <span class="inline-flex items-center gap-2 text-xl font-extrabold tracking-tight hover:text-coffee-700 transition"><i data-lucide="sun" class="h-6 w-6"></i> Morning Brew</span>
+            <span class="inline-flex items-center gap-2 text-xl font-extrabold tracking-tight hover:text-coffee-700 transition"><i data-lucide="flame" class="h-6 w-6"></i> Ember Roasters</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 7. PRICING ============ -->
+    <section id="pricing" class="py-20 lg:py-28 bg-coffee-50">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-2xl mx-auto reveal" data-anim="fadeInUp">
+          <p class="font-semibold text-coffee-600 uppercase tracking-widest text-sm">Học phí</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">Chọn gói phù hợp với mục tiêu của bạn</h2>
+          <p class="mt-4 text-espresso-700">Ưu đãi giảm 30% cho 20 học viên đăng ký sớm khóa K12.</p>
+        </div>
+
+        <div class="mt-14 grid lg:grid-cols-3 gap-6 items-stretch">
+          <!-- Basic -->
+          <div class="reveal rounded-3xl bg-white p-8 ring-1 ring-coffee-100 flex flex-col" data-anim="fadeInUp">
+            <h3 class="text-lg font-bold">Cơ Bản</h3>
+            <p class="mt-1 text-sm text-espresso-700">Dành cho người yêu cà phê muốn pha ngon tại nhà</p>
+            <p class="mt-6"><span class="text-4xl font-extrabold">2.900.000đ</span></p>
+            <p class="text-sm text-espresso-700/70 line-through">4.150.000đ</p>
+            <ul class="mt-6 space-y-3 flex-1 text-sm">
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-600"></i> Module 1 & 2 (4 tuần)</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-600"></i> Học liệu video 6 tháng</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-600"></i> Giấy chứng nhận hoàn thành</li>
+              <li class="flex gap-2 text-espresso-700/50"><i data-lucide="x" class="h-5 w-5 shrink-0"></i> Latte art & vận hành quầy</li>
+              <li class="flex gap-2 text-espresso-700/50"><i data-lucide="x" class="h-5 w-5 shrink-0"></i> Hỗ trợ việc làm</li>
+            </ul>
+            <a href="#footer" class="mt-8 block rounded-full py-3.5 text-center font-semibold ring-1 ring-coffee-300 text-coffee-700 hover:bg-coffee-50 transition">Chọn gói Cơ Bản</a>
+          </div>
+          <!-- Pro (featured) -->
+          <div class="reveal relative rounded-3xl bg-coffee-900 p-8 text-white flex flex-col shadow-2xl shadow-coffee-900/30 lg:-translate-y-4" data-anim="fadeInUp" data-delay="1">
+            <span class="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-caramel-400 px-4 py-1 text-xs font-bold text-espresso-900">PHỔ BIẾN NHẤT</span>
+            <h3 class="text-lg font-bold">Chuyên Nghiệp</h3>
+            <p class="mt-1 text-sm text-coffee-200">Lộ trình đầy đủ để trở thành barista</p>
+            <p class="mt-6"><span class="text-4xl font-extrabold">5.900.000đ</span></p>
+            <p class="text-sm text-coffee-300 line-through">8.430.000đ</p>
+            <ul class="mt-6 space-y-3 flex-1 text-sm text-coffee-100">
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-caramel-400"></i> Toàn bộ 4 module (8 tuần)</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-caramel-400"></i> Học liệu video trọn đời</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-caramel-400"></i> Chứng chỉ Barista Chuyên Nghiệp</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-caramel-400"></i> Giới thiệu việc làm tại 50+ quán</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-caramel-400"></i> Bộ dụng cụ latte art mang về</li>
+            </ul>
+            <a href="#footer" class="mt-8 block rounded-full bg-caramel-400 py-3.5 text-center font-semibold text-espresso-900 hover:bg-caramel-500 transition">Đăng ký gói Chuyên Nghiệp</a>
+          </div>
+          <!-- Owner -->
+          <div class="reveal rounded-3xl bg-white p-8 ring-1 ring-coffee-100 flex flex-col" data-anim="fadeInUp" data-delay="2">
+            <h3 class="text-lg font-bold">Chủ Quán</h3>
+            <p class="mt-1 text-sm text-espresso-700">Cho người chuẩn bị mở quán cà phê</p>
+            <p class="mt-6"><span class="text-4xl font-extrabold">11.900.000đ</span></p>
+            <p class="text-sm text-espresso-700/70 line-through">17.000.000đ</p>
+            <ul class="mt-6 space-y-3 flex-1 text-sm">
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-600"></i> Mọi quyền lợi gói Chuyên Nghiệp</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-600"></i> 4 buổi 1-1 xây dựng menu & giá vốn</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-600"></i> Tư vấn chọn máy, chọn hạt</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-600"></i> Khảo sát mặt bằng quán</li>
+              <li class="flex gap-2"><i data-lucide="check" class="h-5 w-5 shrink-0 text-coffee-600"></i> Hỗ trợ 3 tháng sau khai trương</li>
+            </ul>
+            <a href="#footer" class="mt-8 block rounded-full py-3.5 text-center font-semibold ring-1 ring-coffee-300 text-coffee-700 hover:bg-coffee-50 transition">Chọn gói Chủ Quán</a>
+          </div>
+        </div>
+
+        <!-- Value comparison -->
+        <div class="mt-16 reveal rounded-3xl bg-white p-6 sm:p-10 ring-1 ring-coffee-100" data-anim="fadeInUp">
+          <h3 class="text-xl font-bold text-center">So sánh giá trị gói Chuyên Nghiệp</h3>
+          <div class="mt-6 overflow-x-auto">
+            <table class="w-full min-w-[480px] text-left text-sm">
+              <thead>
+                <tr class="border-b border-coffee-100 text-espresso-700">
+                  <th class="py-3 pr-4 font-semibold">Hạng mục</th>
+                  <th class="py-3 pr-4 font-semibold">Tự học / học lẻ</th>
+                  <th class="py-3 font-semibold text-coffee-700">The Cups Academy</th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-coffee-50">
+                <tr><td class="py-3 pr-4">Giờ thực hành trên máy thương mại</td><td class="py-3 pr-4">Thuê máy ~150.000đ/giờ</td><td class="py-3 font-semibold">~38 giờ đã bao gồm</td></tr>
+                <tr><td class="py-3 pr-4">Hạt cà phê & sữa luyện tập</td><td class="py-3 pr-4">~1.500.000đ</td><td class="py-3 font-semibold">Đã bao gồm</td></tr>
+                <tr><td class="py-3 pr-4">Bộ dụng cụ latte art</td><td class="py-3 pr-4">~650.000đ</td><td class="py-3 font-semibold">Tặng kèm</td></tr>
+                <tr><td class="py-3 pr-4">Giảng viên sửa lỗi trực tiếp</td><td class="py-3 pr-4"><i data-lucide="x" class="h-4 w-4 text-rose-500"></i></td><td class="py-3"><i data-lucide="check" class="h-4 w-4 text-coffee-600"></i></td></tr>
+                <tr><td class="py-3 pr-4">Chứng chỉ & giới thiệu việc làm</td><td class="py-3 pr-4"><i data-lucide="x" class="h-4 w-4 text-rose-500"></i></td><td class="py-3"><i data-lucide="check" class="h-4 w-4 text-coffee-600"></i></td></tr>
+                <tr class="font-bold"><td class="py-3 pr-4">Tổng giá trị</td><td class="py-3 pr-4">&gt; 8.000.000đ</td><td class="py-3 text-coffee-700">5.900.000đ</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Guarantee -->
+        <div class="mt-8 reveal flex flex-col sm:flex-row items-center gap-6 rounded-3xl bg-gradient-to-r from-coffee-700 to-coffee-900 p-8 text-white" data-anim="fadeInUp">
+          <span class="grid h-20 w-20 shrink-0 place-items-center rounded-full bg-white/10 ring-2 ring-caramel-400"><i data-lucide="shield-check" class="h-10 w-10 text-caramel-400"></i></span>
+          <div class="text-center sm:text-left">
+            <h3 class="text-xl font-bold">Cam kết hoàn 100% học phí trong 7 ngày đầu</h3>
+            <p class="mt-2 text-coffee-100">Học 2 buổi đầu tiên, nếu thấy khóa học không phù hợp, bạn được hoàn lại toàn bộ học phí. Không cần giải thích.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 8. CTA ============ -->
+    <section class="relative overflow-hidden py-20 lg:py-28">
+      <img src="https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=1800&q=75&auto=format&fit=crop" alt="" class="absolute inset-0 h-full w-full object-cover" loading="lazy" />
+      <div class="absolute inset-0 bg-gradient-to-r from-coffee-950/95 via-coffee-900/85 to-espresso-900/80"></div>
+      <div class="relative mx-auto max-w-3xl px-4 sm:px-6 text-center text-white reveal" data-anim="zoomIn">
+        <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight">Ly cà phê ngon nhất là ly do chính bạn pha</h2>
+        <p class="mt-5 text-lg text-coffee-100">Khóa K12 khai giảng 09/11/2026 và chỉ còn <strong class="text-caramel-400">8 suất</strong> ưu đãi -30%.</p>
+        <div class="mt-9 flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="#pricing" class="inline-flex items-center justify-center gap-2 rounded-full bg-caramel-400 px-8 py-4 font-semibold text-espresso-900 hover:bg-caramel-500 transition animate__animated animate__pulse animate__infinite animate__slow">
+            Giữ chỗ ngay <i data-lucide="arrow-right" class="h-5 w-5"></i>
+          </a>
+          <a href="tel:0901234567" class="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 font-semibold ring-1 ring-white/40 hover:bg-white/10 transition">
+            <i data-lucide="phone" class="h-5 w-5"></i> Gọi tư vấn 090 123 4567
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 9. FAQ ============ -->
+    <section id="faq" class="py-20 lg:py-28">
+      <div class="mx-auto max-w-3xl px-4 sm:px-6">
+        <div class="text-center reveal" data-anim="fadeInUp">
+          <p class="font-semibold text-coffee-600 uppercase tracking-widest text-sm">FAQ</p>
+          <h2 class="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight">Câu hỏi thường gặp</h2>
+        </div>
+        <div class="mt-12 space-y-4" id="faqList">
+          <details class="reveal group rounded-2xl bg-white ring-1 ring-coffee-100 open:ring-coffee-300 open:shadow-lg transition" data-anim="fadeInUp">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 p-6 font-semibold">
+              Tôi chưa biết gì về cà phê, có học được không?
+              <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-coffee-600 transition-transform"></i>
+            </summary>
+            <p class="px-6 pb-6 text-espresso-700">Hoàn toàn được. Module 1 bắt đầu từ kiến thức nền tảng và hơn 60% học viên của chúng tôi chưa từng đứng quầy bar trước khi nhập học.</p>
+          </details>
+          <details class="reveal group rounded-2xl bg-white ring-1 ring-coffee-100 open:ring-coffee-300 open:shadow-lg transition" data-anim="fadeInUp">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 p-6 font-semibold">
+              Lịch học như thế nào? Tôi đi làm giờ hành chính.
+              <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-coffee-600 transition-transform"></i>
+            </summary>
+            <p class="px-6 pb-6 text-espresso-700">Mỗi khóa có 3 ca: sáng (8h–11h), chiều (14h–17h) và tối (18h30–21h30), học 2 buổi/tuần. Bạn có thể học bù ở ca khác khi bận.</p>
+          </details>
+          <details class="reveal group rounded-2xl bg-white ring-1 ring-coffee-100 open:ring-coffee-300 open:shadow-lg transition" data-anim="fadeInUp">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 p-6 font-semibold">
+              Học phí đã bao gồm nguyên liệu chưa?
+              <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-coffee-600 transition-transform"></i>
+            </summary>
+            <p class="px-6 pb-6 text-espresso-700">Đã bao gồm toàn bộ hạt cà phê, sữa, syrup và dụng cụ trong suốt khóa học. Bạn không phải trả thêm bất kỳ chi phí nào.</p>
+          </details>
+          <details class="reveal group rounded-2xl bg-white ring-1 ring-coffee-100 open:ring-coffee-300 open:shadow-lg transition" data-anim="fadeInUp">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 p-6 font-semibold">
+              Có được trả góp học phí không?
+              <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-coffee-600 transition-transform"></i>
+            </summary>
+            <p class="px-6 pb-6 text-espresso-700">Có. Bạn có thể chia học phí thành 2 lần: 50% khi đăng ký và 50% vào tuần thứ 4, không tính phí.</p>
+          </details>
+          <details class="reveal group rounded-2xl bg-white ring-1 ring-coffee-100 open:ring-coffee-300 open:shadow-lg transition" data-anim="fadeInUp">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 p-6 font-semibold">
+              Nếu nghỉ một buổi thì sao?
+              <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-coffee-600 transition-transform"></i>
+            </summary>
+            <p class="px-6 pb-6 text-espresso-700">Bạn được học bù miễn phí ở lớp khác cùng chương trình, đồng thời xem lại video bài giảng trên hệ thống học liệu.</p>
+          </details>
+          <details class="reveal group rounded-2xl bg-white ring-1 ring-coffee-100 open:ring-coffee-300 open:shadow-lg transition" data-anim="fadeInUp">
+            <summary class="flex cursor-pointer items-center justify-between gap-4 p-6 font-semibold">
+              Chính sách hoàn học phí áp dụng thế nào?
+              <i data-lucide="plus" class="faq-icon h-5 w-5 shrink-0 text-coffee-600 transition-transform"></i>
+            </summary>
+            <p class="px-6 pb-6 text-espresso-700">Trong 7 ngày đầu (tối đa 2 buổi học), bạn chỉ cần nhắn cho tư vấn viên là được hoàn 100% học phí trong vòng 3 ngày làm việc.</p>
+          </details>
+        </div>
+        <p class="mt-10 text-center text-espresso-700 reveal" data-anim="fadeIn">
+          Còn thắc mắc? <a href="#footer" class="font-semibold text-coffee-700 underline underline-offset-4">Liên hệ đội ngũ tư vấn</a>
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ 10. FOOTER ============ -->
+  <footer id="footer" class="bg-coffee-950 text-coffee-100">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-12 lg:grid-cols-12">
+      <div class="lg:col-span-4">
+        <div class="flex items-center gap-3">
+          <img src="assets/16E5F48A-DA79-49EF-8C86-44BA17AC08C7_1_105_c.jpeg" alt="The Cups Coffee" class="h-14 w-14 rounded-full object-cover" />
+          <span class="text-lg font-bold text-white">The Cups Academy</span>
+        </div>
+        <p class="mt-5 text-sm text-coffee-200/80 max-w-sm">Học viện đào tạo barista của The Cups Coffee. Chúng tôi tin rằng ai cũng có thể pha một ly cà phê tuyệt vời.</p>
+        <div class="mt-6 flex gap-3">
+          <a href="#" aria-label="Facebook" class="grid h-10 w-10 place-items-center rounded-full bg-white/10 hover:bg-coffee-600 transition"><i data-lucide="facebook" class="h-5 w-5"></i></a>
+          <a href="#" aria-label="Instagram" class="grid h-10 w-10 place-items-center rounded-full bg-white/10 hover:bg-coffee-600 transition"><i data-lucide="instagram" class="h-5 w-5"></i></a>
+          <a href="#" aria-label="YouTube" class="grid h-10 w-10 place-items-center rounded-full bg-white/10 hover:bg-coffee-600 transition"><i data-lucide="youtube" class="h-5 w-5"></i></a>
+          <a href="#" aria-label="TikTok" class="grid h-10 w-10 place-items-center rounded-full bg-white/10 hover:bg-coffee-600 transition"><i data-lucide="music-2" class="h-5 w-5"></i></a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-2">
+        <h4 class="font-semibold text-white">Khóa học</h4>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li><a href="#solution" class="hover:text-white">Barista Chuyên Nghiệp</a></li>
+          <li><a href="#curriculum" class="hover:text-white">Lộ trình học</a></li>
+          <li><a href="#pricing" class="hover:text-white">Học phí</a></li>
+          <li><a href="#faq" class="hover:text-white">Câu hỏi thường gặp</a></li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h4 class="font-semibold text-white">Liên hệ</h4>
+        <ul class="mt-4 space-y-3 text-sm">
+          <li class="flex gap-2"><i data-lucide="map-pin" class="h-5 w-5 shrink-0 text-coffee-300"></i> 123 Nguyễn Đình Chiểu, Quận 3, TP. Hồ Chí Minh</li>
+          <li class="flex gap-2"><i data-lucide="phone" class="h-5 w-5 shrink-0 text-coffee-300"></i> <a href="tel:0901234567" class="hover:text-white">090 123 4567</a></li>
+          <li class="flex gap-2"><i data-lucide="mail" class="h-5 w-5 shrink-0 text-coffee-300"></i> <a href="mailto:academy@thecups.coffee" class="hover:text-white">academy@thecups.coffee</a></li>
+          <li class="flex gap-2"><i data-lucide="clock" class="h-5 w-5 shrink-0 text-coffee-300"></i> 8:00 – 21:30, Thứ 2 – Chủ nhật</li>
+        </ul>
+      </div>
+
+      <div class="lg:col-span-3">
+        <h4 class="font-semibold text-white">Nhận bản tin</h4>
+        <p class="mt-4 text-sm text-coffee-200/80">Công thức mới, lịch khai giảng và ưu đãi dành riêng cho bạn mỗi tháng.</p>
+        <form id="newsletter" class="mt-4 flex flex-col sm:flex-row lg:flex-col xl:flex-row gap-2">
+          <label for="nlEmail" class="sr-only">Email</label>
+          <input id="nlEmail" type="email" required placeholder="Email của bạn"
+                 class="min-w-0 flex-1 rounded-full bg-white/10 px-5 py-3 text-sm text-white placeholder:text-coffee-300 ring-1 ring-white/15 focus:outline-none focus:ring-2 focus:ring-coffee-400" />
+          <button type="submit" class="inline-flex items-center justify-center gap-2 rounded-full bg-caramel-400 px-5 py-3 text-sm font-semibold text-espresso-900 hover:bg-caramel-500 transition">
+            Đăng ký <i data-lucide="send" class="h-4 w-4"></i>
+          </button>
+        </form>
+        <p id="nlMsg" class="mt-3 hidden text-sm text-caramel-400" role="status"></p>
+      </div>
+    </div>
+    <div class="border-t border-white/10">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-coffee-300">
+        <p>© 2026 The Cups Coffee. Bảo lưu mọi quyền.</p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-white">Chính sách bảo mật</a>
+          <a href="#" class="hover:text-white">Điều khoản</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky CTA trên mobile -->
+  <a href="#pricing" id="stickyCta" class="md:hidden fixed bottom-4 inset-x-4 z-40 hidden items-center justify-center gap-2 rounded-full bg-coffee-700 py-4 font-semibold text-white shadow-2xl shadow-coffee-900/40">
+    Đăng ký khóa K12 — giảm 30% <i data-lucide="arrow-right" class="h-5 w-5"></i>
+  </a>
+
+  <script>
+    lucide.createIcons();
+
+    // Menu mobile
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    menuBtn.addEventListener('click', () => {
+      const open = mobileMenu.classList.toggle('hidden') === false;
+      menuBtn.setAttribute('aria-expanded', open);
+    });
+    mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+    // Animation khi cuộn tới (animate.style)
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        el.style.animationDelay = `${(Number(el.dataset.delay) || 0) * 0.15}s`;
+        el.classList.add('animate__animated', `animate__${el.dataset.anim || 'fadeInUp'}`);
+        revealObserver.unobserve(el);
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Đếm số thống kê
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        const target = Number(el.dataset.target);
+        const start = performance.now();
+        const tick = (now) => {
+          const p = Math.min((now - start) / 1500, 1);
+          el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString('vi-VN');
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+        counterObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.counter').forEach(el => counterObserver.observe(el));
+
+    // FAQ: chỉ mở một câu tại một thời điểm
+    const faqItems = document.querySelectorAll('#faqList details');
+    faqItems.forEach(d => d.addEventListener('toggle', () => {
+      if (d.open) faqItems.forEach(o => { if (o !== d) o.open = false; });
+    }));
+
+    // Sticky CTA mobile: hiện sau khi qua hero, ẩn khi tới bảng giá
+    const stickyCta = document.getElementById('stickyCta');
+    const pricing = document.getElementById('pricing');
+    window.addEventListener('scroll', () => {
+      const pastHero = window.scrollY > window.innerHeight * 0.8;
+      const r = pricing.getBoundingClientRect();
+      const atPricing = r.top < window.innerHeight && r.bottom > 0;
+      stickyCta.classList.toggle('hidden', !pastHero || atPricing);
+      stickyCta.classList.toggle('flex', pastHero && !atPricing);
+    }, { passive: true });
+
+    // Newsletter (chưa nối backend: chỉ xác nhận phía client)
+    document.getElementById('newsletter').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const msg = document.getElementById('nlMsg');
+      msg.textContent = 'Cảm ơn bạn! Bản tin đầu tiên sẽ sớm có trong hộp thư.';
+      msg.classList.remove('hidden');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

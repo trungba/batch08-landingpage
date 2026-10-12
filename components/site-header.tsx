@@ -22,7 +22,7 @@ export function SiteHeader() {
             </li>
           ))}
         </ul>
-        <a href="#pricing" className="hidden items-center gap-2 rounded-full bg-coffee-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-coffee-800 md:inline-flex">
+        <a href="#register" className="hidden items-center gap-2 rounded-full bg-coffee-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-coffee-800 md:inline-flex">
           Đăng ký ngay <ArrowRight className="h-4 w-4" />
         </a>
         <button
@@ -43,7 +43,7 @@ export function SiteHeader() {
               </li>
             ))}
             <li>
-              <a href="#pricing" onClick={() => setOpen(false)} className="mt-2 block rounded-full bg-coffee-700 py-3 text-center font-semibold text-white">
+              <a href="#register" onClick={() => setOpen(false)} className="mt-2 block rounded-full bg-coffee-700 py-3 text-center font-semibold text-white">
                 Đăng ký ngay
               </a>
             </li>

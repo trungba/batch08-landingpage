@@ -57,7 +57,7 @@ export function Curriculum() {
         </ol>
 
         <div className="reveal mt-14 text-center" data-anim="fadeInUp">
-          <a href="#pricing" className="inline-flex items-center gap-2 rounded-full bg-coffee-500 px-7 py-4 font-semibold text-white transition hover:bg-coffee-400">
+          <a href="#register" className="inline-flex items-center gap-2 rounded-full bg-coffee-500 px-7 py-4 font-semibold text-white transition hover:bg-coffee-400">
             Đăng ký khóa K12 <ArrowRight className="h-5 w-5" />
           </a>
         </div>

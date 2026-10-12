@@ -7,6 +7,7 @@ import { Faq } from "@/components/sections/faq";
 import { FinalCta } from "@/components/sections/final-cta";
 import { Hero } from "@/components/sections/hero";
 import { Pricing } from "@/components/sections/pricing";
+import { Registration } from "@/components/sections/registration";
 import { Problem } from "@/components/sections/problem";
 import { SiteFooter } from "@/components/sections/site-footer";
 import { SocialProof } from "@/components/sections/social-proof";
@@ -25,6 +26,7 @@ export default function Home() {
         <SocialProof />
         <Pricing />
         <FinalCta />
+        <Registration />
         <Faq />
       </main>
       <SiteFooter />

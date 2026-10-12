@@ -1,0 +1,187 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function userPath(uid) {
+      return /databases/$(database)/documents/users/$(uid);
+    }
+
+    match /users/{uid} {
+      // Any signed-in teammate can list people (e.g. to assign customers).
+      allow read: if signedIn();
+
+      // Each user may only mirror their own auth profile.
+      allow create, update: if signedIn()
+        && request.auth.uid == uid
+        && request.resource.data.keys().hasOnly(['displayName', 'email', 'updatedAt'])
+        && request.resource.data.email == request.auth.token.get('email', null)
+        && (request.resource.data.displayName == null || request.resource.data.displayName is string)
+        && request.resource.data.updatedAt == request.time;
+    }
+
+    match /customers/{customerId} {
+      function validCustomer(data) {
+        return data.keys().hasOnly([
+            'name', 'email', 'status', 'priority', 'description', 'assignedTo',
+            'createdAt', 'updatedAt', 'createdBy', 'updatedBy'
+          ])
+          && data.name is string && data.name.size() > 0 && data.name.size() <= 200
+          && data.email is string && data.email.matches('^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$')
+          && data.status in ['active', 'inactive']
+          && data.priority in ['high', 'medium', 'low']
+          && data.description is string && data.description.size() <= 5000
+          && (data.assignedTo == null || data.assignedTo is path);
+      }
+
+      function customerPath() {
+        return /databases/$(database)/documents/customers/$(customerId);
+      }
+
+      function isCustomerOwner() {
+        return get(customerPath()).data.createdBy == userPath(request.auth.uid);
+      }
+
+      allow read: if signedIn();
+
+      // Audit fields must point at the caller; timestamps come from the server.
+      allow create: if signedIn()
+        && validCustomer(request.resource.data)
+        && request.resource.data.createdBy == userPath(request.auth.uid)
+        && request.resource.data.updatedBy == userPath(request.auth.uid)
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+
+      // Any teammate can edit, but never rewrite who created it or when.
+      allow update: if signedIn()
+        && validCustomer(request.resource.data)
+        && request.resource.data.diff(resource.data)
+             .unchangedKeys().hasAll(['createdBy', 'createdAt'])
+        && request.resource.data.updatedBy == userPath(request.auth.uid)
+        && request.resource.data.updatedAt == request.time;
+
+      allow delete: if signedIn() && resource.data.createdBy == userPath(request.auth.uid);
+
+      match /activities/{activityId} {
+        function auditKeys() {
+          return ['type', 'date', 'createdAt', 'updatedAt', 'createdBy', 'updatedBy'];
+        }
+
+        function optionalText(data, key) {
+          return !(key in data) || (data[key] is string && data[key].size() <= 5000);
+        }
+
+        function requiredText(data, key) {
+          return key in data && data[key] is string
+            && data[key].size() > 0 && data[key].size() <= 5000;
+        }
+
+        // Each type carries only its own fields (see ActivityData in the app).
+        function validActivity(data) {
+          return data.date is timestamp
+            && (
+              (data.type == 'call'
+                && data.keys().hasOnly(auditKeys().concat(['callQuality', 'note']))
+                && (!('callQuality' in data) || data.callQuality == null
+                    || data.callQuality in ['good', 'average', 'poor'])
+                && optionalText(data, 'note'))
+              || (data.type in ['email', 'meeting']
+                && data.keys().hasOnly(auditKeys().concat(['content', 'note']))
+                && requiredText(data, 'content')
+                && optionalText(data, 'note'))
+              || (data.type == 'note'
+                && data.keys().hasOnly(auditKeys().concat(['content']))
+                && requiredText(data, 'content'))
+            );
+        }
+
+        allow read: if signedIn();
+
+        allow create: if signedIn()
+          && exists(customerPath())
+          && validActivity(request.resource.data)
+          && request.resource.data.createdBy == userPath(request.auth.uid)
+          && request.resource.data.updatedBy == userPath(request.auth.uid)
+          && request.resource.data.createdAt == request.time
+          && request.resource.data.updatedAt == request.time;
+
+        allow update: if signedIn()
+          && validActivity(request.resource.data)
+          && request.resource.data.diff(resource.data)
+               .unchangedKeys().hasAll(['createdBy', 'createdAt'])
+          && request.resource.data.updatedBy == userPath(request.auth.uid)
+          && request.resource.data.updatedAt == request.time;
+
+        // Activity author, or the customer owner (needed to cascade-delete the customer).
+        allow delete: if signedIn()
+          && (resource.data.createdBy == userPath(request.auth.uid) || isCustomerOwner());
+      }
+
+      // Metadata for objects stored at customers/{customerId}/files/{fileId} in Storage.
+      match /files/{fileId} {
+        allow read: if signedIn();
+
+        allow create: if signedIn()
+          && exists(customerPath())
+          && request.resource.data.keys().hasOnly(['name', 'url', 'type', 'uploadedAt', 'uploadedBy'])
+          && request.resource.data.name is string
+          && request.resource.data.name.size() > 0 && request.resource.data.name.size() <= 500
+          && request.resource.data.url is string
+          && request.resource.data.type is string && request.resource.data.type.size() <= 200
+          && request.resource.data.uploadedAt == request.time
+          && request.resource.data.uploadedBy == userPath(request.auth.uid);
+
+        // Files are immutable: replace = delete + upload.
+        allow update: if false;
+
+        // Uploader, or the customer owner (needed to cascade-delete the customer).
+        allow delete: if signedIn()
+          && (resource.data.uploadedBy == userPath(request.auth.uid) || isCustomerOwner());
+      }
+    }
+
+    match /tasks/{taskId} {
+      function isCreator() {
+        return resource.data.createdBy == request.auth.uid;
+      }
+
+      function isAssignee() {
+        return resource.data.assigneeEmail == request.auth.token.email;
+      }
+
+      function validTask(data) {
+        return data.title is string
+          && data.title.size() > 0 && data.title.size() <= 200
+          && data.description is string && data.description.size() <= 5000
+          && data.status in ['todo', 'in_progress', 'done']
+          && data.priority in ['low', 'medium', 'high']
+          && (data.assigneeEmail == null || data.assigneeEmail is string)
+          && (data.dueDate == null || data.dueDate is timestamp);
+      }
+
+      // Any signed-in teammate can see all tasks.
+      allow read: if signedIn();
+
+      // The creator fields must match the caller; timestamps come from the server.
+      allow create: if signedIn()
+        && validTask(request.resource.data)
+        && request.resource.data.createdBy == request.auth.uid
+        && request.resource.data.createdByEmail == request.auth.token.email
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+
+      // Creator or assignee can edit, but never change ownership or creation time.
+      allow update: if signedIn()
+        && (isCreator() || isAssignee())
+        && validTask(request.resource.data)
+        && request.resource.data.diff(resource.data)
+             .unchangedKeys().hasAll(['createdBy', 'createdByEmail', 'createdAt'])
+        && request.resource.data.updatedAt == request.time;
+
+      allow delete: if signedIn() && isCreator();
+    }
+  }
+}

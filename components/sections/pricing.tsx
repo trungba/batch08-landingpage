@@ -42,7 +42,7 @@ export function Pricing() {
                 ))}
               </ul>
               <a
-                href="#footer"
+                href="#register"
                 className={`mt-8 block rounded-full py-3.5 text-center font-semibold transition ${p.featured ? "bg-caramel-400 text-espresso-900 hover:bg-caramel-500" : "text-coffee-700 ring-1 ring-coffee-300 hover:bg-coffee-50"}`}
               >
                 {p.cta}

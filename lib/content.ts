@@ -117,6 +117,7 @@ export const partners: { icon: LucideIcon; name: string }[] = [
 
 export const plans = [
   {
+    id: "co-ban",
     name: "Cơ Bản",
     desc: "Dành cho người yêu cà phê muốn pha ngon tại nhà",
     price: "2.900.000đ",
@@ -132,6 +133,7 @@ export const plans = [
     ],
   },
   {
+    id: "chuyen-nghiep",
     name: "Chuyên Nghiệp",
     desc: "Lộ trình đầy đủ để trở thành barista",
     price: "5.900.000đ",
@@ -147,6 +149,7 @@ export const plans = [
     ],
   },
   {
+    id: "chu-quan",
     name: "Chủ Quán",
     desc: "Cho người chuẩn bị mở quán cà phê",
     price: "11.900.000đ",
@@ -188,3 +191,10 @@ export const contact = {
   email: "academy@thecups.coffee",
   hours: "8:00 – 21:30, Thứ 2 – Chủ nhật",
 };
+
+// Giá trị `id` được lưu vào Firestore và phải khớp với firestore.rules
+export const shifts = [
+  { id: "sang", label: "Sáng (8h–11h)" },
+  { id: "chieu", label: "Chiều (14h–17h)" },
+  { id: "toi", label: "Tối (18h30–21h30)" },
+];

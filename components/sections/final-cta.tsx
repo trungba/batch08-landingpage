@@ -13,7 +13,7 @@ export function FinalCta() {
           Khóa K12 khai giảng 09/11/2026 và chỉ còn <strong className="text-caramel-400">8 suất</strong> ưu đãi -30%.
         </p>
         <div className="mt-9 flex flex-col justify-center gap-4 sm:flex-row">
-          <a href="#pricing" className="animate__animated animate__pulse animate__infinite animate__slow inline-flex items-center justify-center gap-2 rounded-full bg-caramel-400 px-8 py-4 font-semibold text-espresso-900 transition hover:bg-caramel-500">
+          <a href="#register" className="animate__animated animate__pulse animate__infinite animate__slow inline-flex items-center justify-center gap-2 rounded-full bg-caramel-400 px-8 py-4 font-semibold text-espresso-900 transition hover:bg-caramel-500">
             Giữ chỗ ngay <ArrowRight className="h-5 w-5" />
           </a>
           <a href={`tel:${contact.tel}`} className="inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 font-semibold ring-1 ring-white/40 transition hover:bg-white/10">

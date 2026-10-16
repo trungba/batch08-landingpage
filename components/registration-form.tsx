@@ -116,7 +116,7 @@ export function RegistrationForm() {
     const s = shifts.find((x) => x.id === submitted.shift)!;
     return (
       <div ref={successRef} className="rounded-3xl bg-white p-8 text-center text-espresso-900 shadow-2xl ring-1 ring-coffee-100 sm:p-10" role="status">
-        <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-50 text-emerald-600 ring-8 ring-emerald-50/50 motion-safe:animate-rise">
+        <span className="mx-auto grid h-16 w-16 place-items-center rounded-full bg-emerald-50 text-emerald-600 ring-8 ring-emerald-50/50 animate-rise">
           <CheckCircle2 className="h-9 w-9" />
         </span>
         <h3 className="mt-6 text-2xl font-extrabold">Cảm ơn {submitted.fullName.split(" ").at(-1)}, bạn đã giữ chỗ!</h3>

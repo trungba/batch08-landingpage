@@ -133,20 +133,13 @@ html {
   transform: none;
 }
 
+/*
+ * Máy bật "giảm chuyển động" (Windows tắt animation, macOS/iOS Reduce Motion) vẫn thấy hiệu ứng:
+ * các hiệu ứng ở đây đều chậm, biên độ nhỏ, không nhấp nháy. Chỉ tắt cuộn mượt.
+ */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
-  }
-  .js .reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
   }
 }
 

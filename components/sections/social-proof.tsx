@@ -56,7 +56,7 @@ export function SocialProof() {
           <p className="text-center text-sm font-semibold tracking-widest text-espresso-700/70 uppercase">Học viên đang làm việc tại</p>
           {/* Dải logo chạy ngang: 4 bản sao, dịch nửa chiều dài để vòng lặp liền mạch, dừng khi rê chuột */}
           <div className="group relative mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)] sm:mt-8">
-            <div className="flex w-max motion-safe:animate-marquee group-hover:[animation-play-state:paused]">
+            <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
               {[0, 1, 2, 3].map((copy) => (
                 <ul key={copy} className="flex shrink-0 items-center gap-12 pr-12 text-espresso-700/60" aria-hidden={copy > 0}>
                   {partners.map(({ icon: Icon, name }) => (

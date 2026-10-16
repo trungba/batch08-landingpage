@@ -4,7 +4,7 @@ import { avatars, course, heroBadge, plans, unsplash, vnd } from "@/lib/content"
 import { DaysLeft } from "@/components/countdown";
 import { SeatsMeter } from "@/components/seats-meter";
 
-const entry = "motion-safe:animate-rise";
+const entry = "animate-rise";
 const cheapest = plans.reduce((a, b) => (a.price <= b.price ? a : b));
 
 const facts = [
@@ -25,7 +25,7 @@ export function Hero() {
             className={`${entry} inline-flex items-center gap-2 rounded-full bg-white/10 py-1.5 pr-4 pl-3 text-[13px] whitespace-nowrap text-coffee-100 ring-1 ring-white/15 transition hover:bg-white/15 sm:text-sm`}
           >
             <span className="relative flex h-2 w-2" aria-hidden>
-              <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 motion-safe:animate-ping-soft" />
+              <span className="absolute inline-flex h-full w-full rounded-full bg-emerald-400 animate-ping-soft" />
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
             </span>
             <span className="rounded-full bg-caramel-400 px-2.5 py-0.5 text-xs font-bold text-espresso-900">{course.cohort}</span>
@@ -63,7 +63,7 @@ export function Hero() {
                 href="#register"
                 className="group relative inline-flex flex-1 items-center justify-center gap-2 overflow-hidden rounded-full bg-caramel-400 px-7 py-4 font-bold text-espresso-900 shadow-lg shadow-caramel-500/30 transition hover:bg-caramel-300"
               >
-                <span className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-white/40 blur-md motion-safe:animate-shimmer" />
+                <span className="pointer-events-none absolute inset-y-0 left-0 w-1/3 bg-white/40 blur-md animate-shimmer" />
                 <span className="relative whitespace-nowrap">Giữ chỗ ưu đãi -{course.discount}%</span>
                 <ArrowRight className="relative h-5 w-5 transition group-hover:translate-x-1" />
               </a>
@@ -95,13 +95,13 @@ export function Hero() {
         <div className={`${entry} relative mx-auto w-full max-w-md lg:max-w-none [animation-delay:120ms]`}>
           <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-tr from-coffee-500/40 to-caramel-400/30 blur-2xl" />
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-2xl sm:aspect-[4/5]">
-            <Image src={unsplash("1541167760496-1628856ab772", 1000)} alt="Barista rót latte art" fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover motion-safe:animate-kenburns" />
+            <Image src={unsplash("1541167760496-1628856ab772", 1000)} alt="Barista rót latte art" fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover animate-kenburns" />
           </div>
-          <div className="absolute top-5 -right-2 rounded-2xl motion-safe:animate-float bg-coffee-950/80 px-4 py-3 text-white shadow-xl ring-1 ring-white/10 backdrop-blur sm:-right-6">
+          <div className="absolute top-5 -right-2 rounded-2xl animate-float bg-coffee-950/80 px-4 py-3 text-white shadow-xl ring-1 ring-white/10 backdrop-blur sm:-right-6">
             <p className="text-2xl font-extrabold text-caramel-300">1 : 1</p>
             <p className="text-xs text-coffee-100">học viên / máy espresso</p>
           </div>
-          <div className="absolute -bottom-6 -left-2 flex motion-safe:animate-float motion-safe:[animation-delay:-2.5s] items-center gap-3 rounded-2xl bg-white p-4 text-espresso-900 shadow-xl sm:-left-8">
+          <div className="absolute -bottom-6 -left-2 flex animate-float [animation-delay:-2.5s] items-center gap-3 rounded-2xl bg-white p-4 text-espresso-900 shadow-xl sm:-left-8">
             <span className="grid h-11 w-11 place-items-center rounded-xl bg-coffee-100 text-coffee-700">
               <BadgeIcon className="h-6 w-6" />
             </span>

@@ -8,7 +8,7 @@ export function Solution() {
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
         <div className="reveal relative" data-anim="left">
           <div className="relative aspect-[4/3] overflow-hidden sm:aspect-square rounded-[2rem] shadow-xl">
-            <Image src={unsplash("1442512595331-e89e73853f31", 1000)} alt="Dụng cụ pha pour-over" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+            <Image src={unsplash("1442512595331-e89e73853f31")} alt="Dụng cụ pha pour-over" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           </div>
           <div className="absolute -top-5 -right-3 rounded-2xl bg-coffee-700 px-5 py-4 text-white shadow-xl sm:-right-6">
             <p className="text-3xl font-extrabold">80%</p>

@@ -65,7 +65,7 @@
 /* Ảnh zoom chậm như thước phim */
 @keyframes kenburns {
   to {
-    transform: scale(1.12) translate(-2%, -2%);
+    transform: scale(1.06) translate(-1%, -1%);
   }
 }
 

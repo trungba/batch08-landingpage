@@ -22,8 +22,12 @@ import {
   type LucideIcon,
 } from "lucide-react";
 
-export const unsplash = (id: string, w: number) =>
-  `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
+/**
+ * Ảnh gốc trên Unsplash. Kích thước do `lib/image-loader.ts` gắn theo từng màn hình;
+ * chỉ truyền `w` khi cần URL cố định (vd ảnh chia sẻ OG).
+ */
+export const unsplash = (id: string, w?: number) =>
+  `https://images.unsplash.com/photo-${id}${w ? `?w=${w}&q=80&auto=format&fit=crop` : ""}`;
 
 export const avatars = {
   ngocAnh: "1494790108377-be9c29b29330",

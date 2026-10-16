@@ -41,7 +41,7 @@ export function SocialProof() {
               </div>
               <blockquote className={`mt-4 flex-1 ${t.featured ? "text-coffee-100" : "text-espresso-800"}`}>“{t.quote}”</blockquote>
               <figcaption className="mt-6 flex items-center gap-3">
-                <Image src={unsplash(t.avatar, 96)} alt="" width={48} height={48} className="h-12 w-12 rounded-full object-cover" />
+                <Image src={unsplash(t.avatar)} alt="" width={48} height={48} className="h-12 w-12 rounded-full object-cover" />
                 <div>
                   <p className="font-bold">{t.name}</p>
                   <p className={`text-sm ${t.featured ? "text-coffee-200" : "text-espresso-700"}`}>{t.role}</p>

@@ -48,7 +48,7 @@ export function Curriculum() {
                     </ul>
                   </div>
                   <div className="relative hidden h-44 overflow-hidden rounded-2xl sm:block md:h-full">
-                    <Image src={unsplash(m.image, 600)} alt={m.alt} fill sizes="(min-width: 768px) 260px, 100vw" className="object-cover" />
+                    <Image src={unsplash(m.image)} alt={m.alt} fill sizes="(min-width: 768px) 260px, 100vw" className="object-cover" />
                   </div>
                 </div>
               </li>

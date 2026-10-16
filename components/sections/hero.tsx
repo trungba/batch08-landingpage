@@ -77,7 +77,7 @@ export function Hero() {
           <div className="mt-8 flex items-center gap-4 text-sm text-coffee-100/80">
             <div className="flex -space-x-3">
               {Object.values(avatars).map((id) => (
-                <Image key={id} src={unsplash(id, 80)} alt="" width={40} height={40} className="h-10 w-10 rounded-full object-cover ring-2 ring-coffee-950" />
+                <Image key={id} src={unsplash(id)} alt="" width={40} height={40} className="h-10 w-10 rounded-full object-cover ring-2 ring-coffee-950" />
               ))}
             </div>
             <div>
@@ -95,7 +95,7 @@ export function Hero() {
         <div className={`${entry} relative mx-auto w-full max-w-md lg:max-w-none [animation-delay:120ms]`}>
           <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-tr from-coffee-500/40 to-caramel-400/30 blur-2xl" />
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-2xl sm:aspect-[4/5]">
-            <Image src={unsplash("1541167760496-1628856ab772", 1000)} alt="Barista rót latte art" fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover animate-kenburns" />
+            <Image src={unsplash("1541167760496-1628856ab772")} alt="Barista rót latte art" fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover animate-kenburns" />
           </div>
           <div className="absolute top-5 -right-2 rounded-2xl animate-float bg-coffee-950/80 px-4 py-3 text-white shadow-xl ring-1 ring-white/10 backdrop-blur sm:-right-6">
             <p className="text-2xl font-extrabold text-caramel-300">1 : 1</p>

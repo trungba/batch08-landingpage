@@ -14,7 +14,7 @@ const steps = [
 export function Registration() {
   return (
     <section id="register" className="relative overflow-hidden bg-coffee-950 py-16 text-white lg:py-28">
-      <Image src={unsplash("1501339847302-ac426a4a7cbb", 1800)} alt="" fill sizes="100vw" className="object-cover opacity-40" />
+      <Image src={unsplash("1501339847302-ac426a4a7cbb")} alt="" fill sizes="100vw" className="object-cover opacity-40" />
       <div className="absolute inset-0 bg-gradient-to-br from-coffee-950 via-coffee-950/90 to-espresso-900/80" />
       <div className="relative mx-auto grid max-w-7xl items-start gap-10 px-4 sm:px-6 lg:grid-cols-[1fr_1.15fr] lg:gap-14 lg:px-8">
         <div className="reveal lg:sticky lg:top-24" data-anim="left">

@@ -35,10 +35,10 @@ export function Hero() {
             </span>
           </a>
           <h1 className={`${entry} mt-5 text-[2.35rem] leading-[1.1] font-extrabold tracking-tight sm:text-5xl xl:text-6xl`}>
-            Từ hạt cà phê đến <span className="text-caramel-300">ly latte art</span> hoàn hảo trong 8 tuần
+            Từ hạt cà phê đến <span className="text-caramel-300">ly Latte art</span> hoàn hảo trong 8 tuần
           </h1>
           <p className={`${entry} mt-4 max-w-xl text-base text-coffee-100/90 sm:mt-5 sm:text-lg [animation-delay:80ms]`}>
-            80% thời gian thực hành trên máy espresso thương mại, học cùng barista đạt giải quốc gia. Ra trường có chứng chỉ và được giới thiệu việc làm.
+            80% thời gian thực hành trên máy Espresso thương mại, học cùng barista đạt giải quốc gia. Ra trường có chứng chỉ và được giới thiệu việc làm.
           </p>
           <ul className={`${entry} mt-5 flex flex-wrap gap-1.5 text-[13px] sm:mt-6 sm:gap-2 sm:text-sm [animation-delay:140ms]`}>
             {facts.map(({ icon: Icon, label }) => (
@@ -95,11 +95,11 @@ export function Hero() {
         <div className={`${entry} relative mx-auto w-full max-w-md lg:max-w-none [animation-delay:120ms]`}>
           <div className="absolute -inset-4 rounded-[2.5rem] bg-gradient-to-tr from-coffee-500/40 to-caramel-400/30 blur-2xl" />
           <div className="relative aspect-[4/3] overflow-hidden rounded-[2rem] shadow-2xl sm:aspect-[4/5]">
-            <Image src={unsplash("1541167760496-1628856ab772")} alt="Barista rót latte art" fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover animate-kenburns" />
+            <Image src={unsplash("1541167760496-1628856ab772")} alt="Barista rót Latte art" fill priority sizes="(min-width: 1024px) 45vw, 100vw" className="object-cover animate-kenburns" />
           </div>
           <div className="absolute top-5 -right-2 rounded-2xl animate-float bg-coffee-950/80 px-4 py-3 text-white shadow-xl ring-1 ring-white/10 backdrop-blur sm:-right-6">
             <p className="text-2xl font-extrabold text-caramel-300">1 : 1</p>
-            <p className="text-xs text-coffee-100">học viên / máy espresso</p>
+            <p className="text-xs text-coffee-100">học viên / máy Espresso</p>
           </div>
           <div className="absolute -bottom-6 -left-2 flex animate-float [animation-delay:-2.5s] items-center gap-3 rounded-2xl bg-white p-4 text-espresso-900 shadow-xl sm:-left-8">
             <span className="grid h-11 w-11 place-items-center rounded-xl bg-coffee-100 text-coffee-700">

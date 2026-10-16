@@ -71,15 +71,15 @@ export const problems: (IconCard & { tone: string })[] = [
 ];
 
 export const features: IconCard[] = [
-  { icon: Coffee, title: "Máy espresso thương mại", text: "1 học viên / 1 máy khi thực hành" },
+  { icon: Coffee, title: "Máy Espresso thương mại", text: "1 học viên / 1 máy khi thực hành" },
   { icon: Users, title: "Lớp tối đa 8 người", text: "Giảng viên sửa lỗi từng động tác" },
   { icon: Video, title: "Học liệu video trọn đời", text: "Ôn lại mọi lúc sau khóa" },
   { icon: BadgeCheck, title: "Chứng chỉ & giới thiệu việc", text: "Kết nối 50+ quán đối tác" },
 ];
 
 export const benefits: (IconCard & { variant: "dark" | "light" | "accent"; span: string })[] = [
-  { icon: Target, variant: "dark", span: "md:col-span-3 lg:col-span-2", title: "Pha espresso chuẩn vị, ổn định", text: "Tự canh cỡ xay, liều lượng, thời gian chiết xuất để ly nào cũng ngon như ly nào." },
-  { icon: Heart, variant: "light", span: "md:col-span-3 lg:col-span-2", title: "Thành thạo 6 mẫu latte art", text: "Heart, tulip, rosetta, swan… từ cơ bản đến nâng cao." },
+  { icon: Target, variant: "dark", span: "md:col-span-3 lg:col-span-2", title: "Pha Espresso chuẩn vị, ổn định", text: "Tự canh cỡ xay, liều lượng, thời gian chiết xuất để ly nào cũng ngon như ly nào." },
+  { icon: Heart, variant: "light", span: "md:col-span-3 lg:col-span-2", title: "Thành thạo 6 mẫu Latte art", text: "Heart, tulip, rosetta, swan… từ cơ bản đến nâng cao." },
   { icon: CupSoda, variant: "light", span: "md:col-span-2 lg:col-span-2", title: "30+ công thức đồ uống", text: "Cà phê Việt, specialty, cold brew và menu signature bán chạy." },
   { icon: TrendingUp, variant: "light", span: "md:col-span-2 lg:col-span-3", title: "Thu nhập barista 8–15 triệu/tháng", text: "Hồ sơ chứng chỉ và portfolio giúp bạn ứng tuyển vào các chuỗi cà phê specialty." },
   { icon: KeyRound, variant: "accent", span: "md:col-span-2 lg:col-span-3", title: "Tự tin mở quán của riêng mình", text: "Biết chọn máy, chọn hạt, tính giá vốn và setup quầy bar hiệu quả." },
@@ -97,15 +97,15 @@ export const modules = [
     weeks: "Tuần 3–4 · Module 2",
     title: "Espresso & máy pha",
     image: "1511920170033-f8396924c348",
-    alt: "Portafilter và espresso",
-    items: ["Cấu tạo, vận hành và vệ sinh máy espresso, máy xay", "Dosing, tamping, recipe và dial-in", "Chẩn đoán shot lỗi: under / over extraction"],
+    alt: "Portafilter và Espresso",
+    items: ["Cấu tạo, vận hành và vệ sinh máy Espresso, máy xay", "Dosing, tamping, recipe và dial-in", "Chẩn đoán shot lỗi: under / over extraction"],
   },
   {
     weeks: "Tuần 5–6 · Module 3",
     title: "Sữa & Latte Art",
     image: "1509042239860-f550ce710b93",
-    alt: "Ly latte art",
-    items: ["Kỹ thuật đánh sữa microfoam, sữa thực vật", "Cappuccino, latte, flat white chuẩn tỷ lệ", "6 mẫu latte art từ heart đến swan"],
+    alt: "Ly Latte art",
+    items: ["Kỹ thuật đánh sữa microfoam, sữa thực vật", "Cappuccino, Latte, flat white chuẩn tỷ lệ", "6 mẫu Latte art từ heart đến swan"],
   },
   {
     weeks: "Tuần 7–8 · Module 4",
@@ -167,7 +167,7 @@ export const plans = [
       { text: "Học liệu video trọn đời", included: true },
       { text: "Chứng chỉ Barista Chuyên Nghiệp", included: true },
       { text: "Giới thiệu việc làm tại 50+ quán", included: true },
-      { text: "Bộ dụng cụ latte art mang về", included: true },
+      { text: "Bộ dụng cụ Latte art mang về", included: true },
     ],
   },
   {
@@ -192,7 +192,7 @@ export const plans = [
 export const valueRows: [string, string | boolean, string | boolean][] = [
   ["Giờ thực hành trên máy thương mại", "Thuê máy ≈ 150.000đ/giờ", "≈ 38 giờ, đã bao gồm"],
   ["Hạt cà phê & sữa luyện tập", "≈ 1.500.000đ", "Đã bao gồm"],
-  ["Bộ dụng cụ latte art", "≈ 650.000đ", "Tặng kèm"],
+  ["Bộ dụng cụ Latte art", "≈ 650.000đ", "Tặng kèm"],
   ["Giảng viên sửa lỗi trực tiếp", false, true],
   ["Chứng chỉ & giới thiệu việc làm", false, true],
 ];

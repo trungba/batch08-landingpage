@@ -19,7 +19,7 @@ export function Solution() {
           <p className="text-sm font-semibold tracking-widest text-coffee-600 uppercase">Giải pháp</p>
           <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Khóa học Barista Chuyên Nghiệp — The Cups Academy</h2>
           <p className="mt-5 text-lg text-espresso-700">
-            Chương trình 8 tuần được thiết kế bởi đội ngũ barista của The Cups Coffee, đi từ kiến thức hạt, rang, xay đến espresso, đánh sữa, latte art, pha chế đồ uống signature và vận hành quầy bar.
+            Chương trình 8 tuần được thiết kế bởi đội ngũ barista của The Cups Coffee, đi từ kiến thức hạt, rang, xay đến Espresso, đánh sữa, Latte art, pha chế đồ uống signature và vận hành quầy bar.
           </p>
           <ul className="mt-8 grid gap-5 sm:grid-cols-2">
             {features.map(({ icon: Icon, title, text }) => (

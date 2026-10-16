@@ -11,7 +11,7 @@ const beVietnam = Be_Vietnam_Pro({
 });
 
 const title = "Khóa học Barista Chuyên Nghiệp 8 tuần — The Cups Academy";
-const description = `Khai giảng ${course.cohort} ngày ${course.startLabel}. 80% thực hành trên máy espresso thương mại, lớp tối đa ${course.classSize} người, chứng chỉ và giới thiệu việc làm. Ưu đãi -${course.discount}% cho ${course.seatsTotal} học viên đầu tiên.`;
+const description = `Khai giảng ${course.cohort} ngày ${course.startLabel}. 80% thực hành trên máy Espresso thương mại, lớp tối đa ${course.classSize} người, chứng chỉ và giới thiệu việc làm. Ưu đãi -${course.discount}% cho ${course.seatsTotal} học viên đầu tiên.`;
 
 export const metadata: Metadata = {
   title,
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "vi_VN",
     siteName: "The Cups Academy",
-    images: [{ url: unsplash("1541167760496-1628856ab772", 1200), width: 1200, height: 800, alt: "Barista rót latte art" }],
+    images: [{ url: unsplash("1541167760496-1628856ab772", 1200), width: 1200, height: 800, alt: "Barista rót Latte art" }],
   },
   twitter: { card: "summary_large_image", title, description },
 };

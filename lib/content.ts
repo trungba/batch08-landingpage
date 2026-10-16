@@ -203,9 +203,9 @@ export const faqs = [
 ];
 
 export const contact = {
-  address: "123 Nguyễn Đình Chiểu, Quận 3, TP. Hồ Chí Minh",
-  phone: "090 123 4567",
-  tel: "0901234567",
+  address: "192 Nguyễn Văn Thoại, phường Ngũ Hành Sơn, TP. Đà Nẵng",
+  phone: "0913 320 177",
+  tel: "0913320177",
   email: "academy@thecups.coffee",
   hours: "8:00 – 21:30, Thứ 2 – Chủ nhật",
 };

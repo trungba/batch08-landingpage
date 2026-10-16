@@ -54,12 +54,19 @@ export function SocialProof() {
 
         <div className="reveal mt-16 sm:mt-20" data-anim="fade">
           <p className="text-center text-sm font-semibold tracking-widest text-espresso-700/70 uppercase">Học viên đang làm việc tại</p>
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-espresso-700/60 sm:mt-8 sm:gap-x-10 sm:gap-y-6">
-            {partners.map(({ icon: Icon, name }) => (
-              <span key={name} className="inline-flex items-center gap-2 text-lg font-extrabold tracking-tight transition hover:text-coffee-700 sm:text-xl">
-                <Icon className="h-5 w-5 sm:h-6 sm:w-6" /> {name}
-              </span>
-            ))}
+          {/* Dải logo chạy ngang: 4 bản sao, dịch nửa chiều dài để vòng lặp liền mạch, dừng khi rê chuột */}
+          <div className="group relative mt-6 overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_12%,black_88%,transparent)] sm:mt-8">
+            <div className="flex w-max motion-safe:animate-marquee group-hover:[animation-play-state:paused]">
+              {[0, 1, 2, 3].map((copy) => (
+                <ul key={copy} className="flex shrink-0 items-center gap-12 pr-12 text-espresso-700/60" aria-hidden={copy > 0}>
+                  {partners.map(({ icon: Icon, name }) => (
+                    <li key={name} className="inline-flex items-center gap-2 text-lg font-extrabold tracking-tight whitespace-nowrap transition hover:text-coffee-700 sm:text-xl">
+                      <Icon className="h-5 w-5 sm:h-6 sm:w-6" /> {name}
+                    </li>
+                  ))}
+                </ul>
+              ))}
+            </div>
           </div>
         </div>
       </div>

@@ -30,6 +30,11 @@
 
   --animate-rise: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
   --animate-shimmer: shimmer 2.8s ease-in-out infinite;
+  --animate-float: float 5s ease-in-out infinite;
+  --animate-kenburns: kenburns 18s ease-in-out infinite alternate;
+  --animate-marquee: marquee 28s linear infinite;
+  --animate-grow: grow 1.6s cubic-bezier(0.2, 0.7, 0.2, 1) 0.4s both;
+  --animate-ping-soft: ping-soft 2s cubic-bezier(0, 0, 0.2, 1) infinite;
 }
 
 @keyframes rise {
@@ -47,6 +52,43 @@
   }
   100% {
     transform: translateX(220%) skewX(-20deg);
+  }
+}
+
+/* Huy hiệu nổi bồng bềnh quanh ảnh hero */
+@keyframes float {
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Ảnh zoom chậm như thước phim */
+@keyframes kenburns {
+  to {
+    transform: scale(1.12) translate(-2%, -2%);
+  }
+}
+
+/* Dải logo chạy ngang vô tận: nội dung được nhân đôi, dịch đúng một nửa */
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Thanh suất ưu đãi chạy từ 0 tới mức thật */
+@keyframes grow {
+  from {
+    transform: scaleX(0);
+  }
+}
+
+/* Chấm "đang tuyển sinh" nhấp nháy */
+@keyframes ping-soft {
+  75%,
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
   }
 }
 
@@ -81,6 +123,10 @@ html {
 }
 .js .reveal[data-anim="fade"] {
   transform: none;
+}
+/* Hiệu ứng bên trong khối chưa hiện thì chờ, để người xem thấy nó chạy */
+.js .reveal:not(.is-visible) [class*="animate-grow"] {
+  animation-play-state: paused;
 }
 .js .reveal.is-visible {
   opacity: 1;

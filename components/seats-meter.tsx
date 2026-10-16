@@ -21,7 +21,7 @@ export function SeatsMeter({ tone = "dark", className = "" }: { tone?: "dark" | 
         aria-valuenow={taken}
         aria-label="Số suất ưu đãi đã được giữ"
       >
-        <div className="h-full rounded-full bg-gradient-to-r from-caramel-500 to-caramel-300" style={{ width: `${pct}%` }} />
+        <div className="h-full origin-left rounded-full bg-gradient-to-r from-caramel-500 to-caramel-300 motion-safe:animate-grow" style={{ width: `${pct}%` }} />
       </div>
     </div>
   );

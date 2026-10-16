@@ -4,7 +4,6 @@ import { StickyCta } from "@/components/sticky-cta";
 import { Benefits } from "@/components/sections/benefits";
 import { Curriculum } from "@/components/sections/curriculum";
 import { Faq } from "@/components/sections/faq";
-import { FinalCta } from "@/components/sections/final-cta";
 import { Hero } from "@/components/sections/hero";
 import { Pricing } from "@/components/sections/pricing";
 import { Registration } from "@/components/sections/registration";
@@ -17,7 +16,8 @@ export default function Home() {
   return (
     <>
       <SiteHeader />
-      <main>
+      {/* clip (không phải hidden): giấu phần tử chờ hiện lệch ngang mà không phá sticky bên trong */}
+      <main className="overflow-x-clip">
         <Hero />
         <Problem />
         <Solution />
@@ -25,9 +25,8 @@ export default function Home() {
         <Curriculum />
         <SocialProof />
         <Pricing />
-        <FinalCta />
-        <Registration />
         <Faq />
+        <Registration />
       </main>
       <SiteFooter />
       <StickyCta />

@@ -10,9 +10,11 @@ import {
   KeyRound,
   Leaf,
   MonitorPlay,
+  Moon,
   Mountain,
   Store,
   Sun,
+  Sunrise,
   Target,
   TrendingUp,
   Users,
@@ -36,6 +38,22 @@ export const navLinks = [
   { href: "#pricing", label: "Học phí" },
   { href: "#faq", label: "FAQ" },
 ];
+
+// Thông tin khóa đang tuyển sinh, dùng chung cho hero, đếm ngược, CTA và form
+export const course = {
+  cohort: "K12",
+  startDate: "2026-11-09T08:00:00+07:00",
+  startLabel: "09/11/2026",
+  seatsTotal: 20,
+  seatsLeft: 8,
+  discount: 30,
+  weeks: 8,
+  sessions: 16,
+  hours: 48,
+  classSize: 8,
+};
+
+export const vnd = (n: number) => `${n.toLocaleString("vi-VN")}đ`;
 
 export const heroBadge = { icon: Award, title: "Chứng chỉ Barista", text: "Được 50+ chuỗi cà phê công nhận" };
 
@@ -120,8 +138,8 @@ export const plans = [
     id: "co-ban",
     name: "Cơ Bản",
     desc: "Dành cho người yêu cà phê muốn pha ngon tại nhà",
-    price: "2.900.000đ",
-    oldPrice: "4.150.000đ",
+    price: 2_900_000,
+    oldPrice: 4_150_000,
     cta: "Chọn gói Cơ Bản",
     featured: false,
     items: [
@@ -136,9 +154,9 @@ export const plans = [
     id: "chuyen-nghiep",
     name: "Chuyên Nghiệp",
     desc: "Lộ trình đầy đủ để trở thành barista",
-    price: "5.900.000đ",
-    oldPrice: "8.430.000đ",
-    cta: "Đăng ký gói Chuyên Nghiệp",
+    price: 5_900_000,
+    oldPrice: 8_430_000,
+    cta: "Chọn gói này",
     featured: true,
     items: [
       { text: "Toàn bộ 4 module (8 tuần)", included: true },
@@ -152,8 +170,8 @@ export const plans = [
     id: "chu-quan",
     name: "Chủ Quán",
     desc: "Cho người chuẩn bị mở quán cà phê",
-    price: "11.900.000đ",
-    oldPrice: "17.000.000đ",
+    price: 11_900_000,
+    oldPrice: 17_000_000,
     cta: "Chọn gói Chủ Quán",
     featured: false,
     items: [
@@ -168,9 +186,9 @@ export const plans = [
 
 // true/false hiển thị dấu tích/dấu x, chuỗi hiển thị nguyên văn
 export const valueRows: [string, string | boolean, string | boolean][] = [
-  ["Giờ thực hành trên máy thương mại", "Thuê máy ~150.000đ/giờ", "~38 giờ đã bao gồm"],
-  ["Hạt cà phê & sữa luyện tập", "~1.500.000đ", "Đã bao gồm"],
-  ["Bộ dụng cụ latte art", "~650.000đ", "Tặng kèm"],
+  ["Giờ thực hành trên máy thương mại", "Thuê máy ≈ 150.000đ/giờ", "≈ 38 giờ, đã bao gồm"],
+  ["Hạt cà phê & sữa luyện tập", "≈ 1.500.000đ", "Đã bao gồm"],
+  ["Bộ dụng cụ latte art", "≈ 650.000đ", "Tặng kèm"],
   ["Giảng viên sửa lỗi trực tiếp", false, true],
   ["Chứng chỉ & giới thiệu việc làm", false, true],
 ];
@@ -194,7 +212,7 @@ export const contact = {
 
 // Giá trị `id` được lưu vào Firestore và phải khớp với firestore.rules
 export const shifts = [
-  { id: "sang", label: "Sáng (8h–11h)" },
-  { id: "chieu", label: "Chiều (14h–17h)" },
-  { id: "toi", label: "Tối (18h30–21h30)" },
+  { id: "sang", label: "Sáng", time: "8h–11h", icon: Sunrise },
+  { id: "chieu", label: "Chiều", time: "14h–17h", icon: Sun },
+  { id: "toi", label: "Tối", time: "18h30–21h30", icon: Moon },
 ];

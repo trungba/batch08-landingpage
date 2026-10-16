@@ -2,20 +2,18 @@
 
 import { useEffect } from "react";
 
-/** Gắn class animate.style cho mọi phần tử `.reveal` khi chúng cuộn vào màn hình. */
+/** Gắn `is-visible` cho mọi phần tử `.reveal` khi chúng cuộn vào màn hình. */
 export function RevealObserver() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting) return;
-          const el = entry.target as HTMLElement;
-          el.style.animationDelay = `${(Number(el.dataset.delay) || 0) * 0.15}s`;
-          el.classList.add("animate__animated", `animate__${el.dataset.anim || "fadeInUp"}`);
-          observer.unobserve(el);
+          entry.target.classList.add("is-visible");
+          observer.unobserve(entry.target);
         });
       },
-      { threshold: 0.15 },
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" },
     );
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
